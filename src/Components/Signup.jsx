@@ -45,7 +45,7 @@ const Signup = () => {
       return;
     }
     // use fetch to send the data to the server
-    fetch("http://localhost:3000/users/register", {
+    fetch("https://farmers-table-backend.vercel.app/users/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -25,7 +25,9 @@ const Content = ({
 
   async function getCategories() {
     try {
-      const response = await fetch("http://localhost:3000/categories");
+      const response = await fetch(
+        "https://farmers-table-backend.vercel.app/categories"
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch categories");
       }
@@ -53,7 +55,9 @@ const Content = ({
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:3000/products");
+        const response = await fetch(
+          "https://farmers-table-backend.vercel.app/products"
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch products");
         }

@@ -19,7 +19,7 @@ const Login = ({ setUser }) => {
     e.preventDefault();
     setError("");
     // fetch to send the data to the server
-    fetch("http://localhost:3000/users/login", {
+    fetch("https://farmers-table-backend.vercel.app/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

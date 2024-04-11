@@ -24,42 +24,46 @@ const Side_Content = (props) => {
         </h2>
         <div className="flex flex-col gap-4">
           {props.favourite.map((item) => (
-            <div
-              key={item.image}
-              className="flex border-1 rounded-md bg-white relative"
-            >
-              <img
-                src={item.image}
-                loading="lazy"
-                alt="Product Image"
-                className="object-contain h-24 pdt_image"
-              />
-              <p className="font-poppins text-xs">
-                <span className="w-fit x mt-2 font-semibold">{item.name}</span>
-                <span className="w-fit flex flex-row flex-wrap mt-2">
-                  <span className="font-semibold h-fit w-fit">
-                    Description:
+            <Link to={`/product/${item._id}`} key={item.image}>
+              <div
+                key={item.image}
+                className="flex border-1 rounded-md bg-white relative"
+              >
+                <img
+                  src={item.image}
+                  loading="lazy"
+                  alt="Product Image"
+                  className="object-contain h-24 pdt_image"
+                />
+                <p className="font-poppins text-xs">
+                  <span className="w-fit x mt-2 font-semibold">
+                    {item.name}
                   </span>
-                  <span>{item.description}</span>
-                </span>
-              </p>
-              {/* Remove Favourite */}
-              <RiCloseCircleLine
-                color="red"
-                size={20}
-                className="absolute top-0 right-0 bg-white rounded-full hover:bg-red-300 transition duration-300 ease-in-out p-1"
-                onClick={() => {
-                  const index = props.favourite.findIndex(
-                    (likedProduct) => likedProduct.image === item.image
-                  );
-                  if (index !== -1) {
-                    const updatedLikedProducts = [...props.favourite];
-                    updatedLikedProducts.splice(index, 1);
-                    props.setFavourite(updatedLikedProducts);
-                  }
-                }}
-              />
-            </div>
+                  <span className="w-fit flex flex-row flex-wrap mt-2">
+                    <span className="font-semibold h-fit w-fit">
+                      Description:
+                    </span>
+                    <span>{item.description}</span>
+                  </span>
+                </p>
+                {/* Remove Favourite */}
+                <RiCloseCircleLine
+                  color="red"
+                  size={20}
+                  className="absolute top-0 right-0 bg-white rounded-full hover:bg-red-300 transition duration-300 ease-in-out p-1"
+                  onClick={() => {
+                    const index = props.favourite.findIndex(
+                      (likedProduct) => likedProduct.image === item.image
+                    );
+                    if (index !== -1) {
+                      const updatedLikedProducts = [...props.favourite];
+                      updatedLikedProducts.splice(index, 1);
+                      props.setFavourite(updatedLikedProducts);
+                    }
+                  }}
+                />
+              </div>
+            </Link>
           ))}
         </div>
       </>

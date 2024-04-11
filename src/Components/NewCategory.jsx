@@ -7,13 +7,16 @@ const NewCategory = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/categories", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name: categoryName }),
-      });
+      const response = await fetch(
+        "https://farmers-table-backend.vercel.app/categories",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name: categoryName }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to add category");

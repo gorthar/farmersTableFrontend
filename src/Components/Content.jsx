@@ -8,6 +8,7 @@ import ProductDetailPage from "./ProductDetailPage";
 import Checkout from "./Checkout";
 import Login from "./Login";
 import Signup from "./Signup";
+import backendURL from "./globals";
 
 const Content = ({
   cart_items,
@@ -22,12 +23,10 @@ const Content = ({
 }) => {
   //List Categories
   const [categories, setCategories] = useState([]);
-
+  const newUrl = backendURL;
   async function getCategories() {
     try {
-      const response = await fetch(
-        "https://farmers-table-backend.vercel.app/categories"
-      );
+      const response = await fetch(newUrl + "/categories");
       if (!response.ok) {
         throw new Error("Failed to fetch categories");
       }
@@ -55,9 +54,7 @@ const Content = ({
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(
-          "https://farmers-table-backend.vercel.app/products"
-        );
+        const response = await fetch(backendURL + "/products");
         if (!response.ok) {
           throw new Error("Failed to fetch products");
         }

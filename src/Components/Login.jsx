@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import backendURL from "./globals";
 
 const Login = ({ setUser }) => {
   const [email, setEmail] = useState("");
@@ -19,7 +20,7 @@ const Login = ({ setUser }) => {
     e.preventDefault();
     setError("");
     // fetch to send the data to the server
-    fetch("https://farmers-table-backend.vercel.app/users/login", {
+    fetch(backendURL + "/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

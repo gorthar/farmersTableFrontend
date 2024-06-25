@@ -1,4 +1,5 @@
 import { useState } from "react";
+import backendURL from "./globals";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -45,7 +46,7 @@ const Signup = () => {
       return;
     }
     // use fetch to send the data to the server
-    fetch("https://farmers-table-backend.vercel.app/users/register", {
+    fetch(backendURL + "/users/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
